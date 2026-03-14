@@ -45,7 +45,7 @@ export default function EmailJSContactForm() {
             console.error('EmailJS Error:', error)
             setSubmitStatus({
                 type: 'error',
-                message: 'Oops! Something went wrong. Please try again or email me directly at pancham.singh@email.com'
+                message: 'Oops! Something went wrong. Please try again or email me directly at dev.pancham.singh@email.com'
             })
         } finally {
             setIsSubmitting(false)
