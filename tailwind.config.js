@@ -9,59 +9,82 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                ocean: {
-                    50: '#eff6ff',
-                    100: '#dbeafe',
-                    200: '#bfdbfe',
-                    300: '#93c5fd',
-                    400: '#60a5fa',
-                    500: '#3b82f6',
-                    600: '#2563eb',
-                    700: '#1d4ed8',
-                    800: '#1e40af',
-                    900: '#1e3a8a',
-                    950: '#172554',
+                vibrant: {
+                    50: '#f0f9ff',
+                    100: '#e0f2fe',
+                    200: '#bae6fd',
+                    300: '#7dd3fc',
+                    400: '#38bdf8',
+                    500: '#0ea5e9',
+                    600: '#0284c7',
+                    700: '#0369a1',
+                    800: '#075985',
+                    900: '#0c4a6e',
                 },
-                code: {
-                    dark: '#0a0c10',
-                    light: '#1e1e2e',
-                    accent: '#569cd6',
-                    green: '#6a9955',
-                    orange: '#ce9178',
-                    yellow: '#dcdcaa',
-                    purple: '#c586c0',
+                neon: {
+                    blue: '#00f3ff',
+                    purple: '#bf7af0',
+                    pink: '#ff6bcb',
+                    green: '#4effa5',
+                    yellow: '#ffd966',
+                    orange: '#ff9f4b',
+                    red: '#ff6b6b',
+                },
+                bg: {
+                    light: '#ffffff',
+                    dark: '#0f172a',
+                    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
                 }
             },
             animation: {
                 'float': 'float 6s ease-in-out infinite',
-                'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                'matrix': 'matrix 20s linear infinite',
-                'code-rain': 'codeRain 10s linear infinite',
-                'glow': 'glow 2s ease-in-out infinite alternate',
+                'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                'spin-slow': 'spin 8s linear infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'wave': 'wave 2.5s ease-in-out infinite',
+                'gradient': 'gradient 6s ease infinite',
             },
             keyframes: {
                 float: {
                     '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
                     '50%': { transform: 'translateY(-20px) rotate(2deg)' },
                 },
-                matrix: {
-                    '0%': { transform: 'translateY(-100%)' },
-                    '100%': { transform: 'translateY(100%)' },
+                pulseGlow: {
+                    '0%, 100%': {
+                        boxShadow: '0 0 20px rgba(14, 165, 233, 0.3), 0 0 40px rgba(14, 165, 233, 0.2)',
+                        borderColor: '#0ea5e9'
+                    },
+                    '50%': {
+                        boxShadow: '0 0 40px rgba(236, 72, 153, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)',
+                        borderColor: '#ec4899'
+                    },
                 },
-                codeRain: {
-                    '0%': { opacity: 0, transform: 'translateY(-20px)' },
-                    '50%': { opacity: 1 },
-                    '100%': { opacity: 0, transform: 'translateY(20px)' },
+                wave: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '10%': { transform: 'rotate(14deg)' },
+                    '20%': { transform: 'rotate(-8deg)' },
+                    '30%': { transform: 'rotate(14deg)' },
+                    '40%': { transform: 'rotate(-4deg)' },
+                    '50%': { transform: 'rotate(10deg)' },
+                    '60%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(0deg)' },
                 },
-                glow: {
-                    '0%': { textShadow: '0 0 5px #3b82f6, 0 0 10px #3b82f6' },
-                    '100%': { textShadow: '0 0 10px #60a5fa, 0 0 20px #60a5fa, 0 0 30px #60a5fa' },
-                },
+                gradient: {
+                    '0%, 100%': {
+                        'background-size': '200% 200%',
+                        'background-position': 'left center'
+                    },
+                    '50%': {
+                        'background-size': '200% 200%',
+                        'background-position': 'right center'
+                    }
+                }
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'code-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20 L40 20 L30 40 Z' fill='%233b82f6' opacity='0.1'/%3E%3C/svg%3E\")",
-            },
+                'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                'gradient-vibrant': 'linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)',
+            }
         },
     },
     plugins: [],

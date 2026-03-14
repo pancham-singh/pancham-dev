@@ -72,9 +72,21 @@ const experiences = [
             "Delivered a React Native gaming chat app"
         ],
         technologies: ["Node.js", "Java", "GraphQL", "React Native", "Socket.IO"]
+    },
+    {
+        id: 6,
+        title: "Software Engineer",
+        company: "Mindful (Applegos)",
+        period: "Nov 2016 - May 2017",
+        location: "Mohali",
+        achievements: [
+            "Developed RESTful services in Node.js and POS integrations with Java Jersey to support transactional flows",
+            "Built Angular 4 frontends and optimized JS/CSS/images, reducing page load",
+            "Integrated third-party APIs to extend platform capabilities, elevating user experience"
+        ],
+        technologies: ["Node.js", "Java", "GraphQL", "React Native", "Socket.IO"]
     }
-]
-
+];
 export default function ExperienceTimeline() {
     return (
         <div className="relative">

@@ -61,47 +61,49 @@ export default function FloatingCodeBackground() {
 
         // Animation
         function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            if(ctx && canvas){
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-            // Draw gradient background
-            const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-            gradient.addColorStop(0, '#0a0c10')
-            gradient.addColorStop(0.5, '#1e1e2e')
-            gradient.addColorStop(1, '#0a0c10')
-            ctx.fillStyle = gradient
-            ctx.fillRect(0, 0, canvas.width, canvas.height)
+                // Draw gradient background
+                const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
+                gradient.addColorStop(0, '#0a0c10')
+                gradient.addColorStop(0.5, '#1e1e2e')
+                gradient.addColorStop(1, '#0a0c10')
+                ctx.fillStyle = gradient
+                ctx.fillRect(0, 0, canvas.width, canvas.height)
 
-            // Draw and update particles
-            particles.forEach(particle => {
-                // Move particles
-                particle.y += particle.speed
-                if (particle.y > canvas.height) {
-                    particle.y = -20
-                    particle.x = Math.random() * canvas.width
-                }
-
-                // Add slight horizontal movement
-                particle.x += Math.sin(Date.now() * 0.001 + particle.y) * 0.1
-
-                // Draw particle
-                ctx.font = `${particle.size}px 'Monaco', 'Monospace', monospace`
-                ctx.fillStyle = particle.color
-                ctx.globalAlpha = particle.opacity
-                ctx.fillText(particle.char, particle.x, particle.y)
-
-                // Draw connecting lines
-                particles.forEach(otherParticle => {
-                    const distance = Math.hypot(particle.x - otherParticle.x, particle.y - otherParticle.y)
-                    if (distance < 100) {
-                        ctx.beginPath()
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 100)})`
-                        ctx.lineWidth = 1
-                        ctx.moveTo(particle.x, particle.y)
-                        ctx.lineTo(otherParticle.x, otherParticle.y)
-                        ctx.stroke()
+                // Draw and update particles
+                particles.forEach(particle => {
+                    // Move particles
+                    particle.y += particle.speed
+                    if (particle.y > canvas.height) {
+                        particle.y = -20
+                        particle.x = Math.random() * canvas.width
                     }
+
+                    // Add slight horizontal movement
+                    particle.x += Math.sin(Date.now() * 0.001 + particle.y) * 0.1
+
+                    // Draw particle
+                    ctx.font = `${particle.size}px 'Monaco', 'Monospace', monospace`
+                    ctx.fillStyle = particle.color
+                    ctx.globalAlpha = particle.opacity
+                    ctx.fillText(particle.char, particle.x, particle.y)
+
+                    // Draw connecting lines
+                    particles.forEach(otherParticle => {
+                        const distance = Math.hypot(particle.x - otherParticle.x, particle.y - otherParticle.y)
+                        if (distance < 100) {
+                            ctx.beginPath()
+                            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 100)})`
+                            ctx.lineWidth = 1
+                            ctx.moveTo(particle.x, particle.y)
+                            ctx.lineTo(otherParticle.x, otherParticle.y)
+                            ctx.stroke()
+                        }
+                    })
                 })
-            })
+            }
 
             requestAnimationFrame(animate)
         }
