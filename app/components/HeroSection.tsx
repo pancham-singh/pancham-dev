@@ -176,7 +176,7 @@ export default function HeroSection({ characterImage }: HeroSectionProps) {
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                href="/Full_Stack_Developer_Pancham_Singh.pdf.pdf"
+                                href="/Full_Stack_Developer_Pancham_Singh.pdf"
                                 className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-neon-blue text-neon-blue rounded-full font-semibold hover:bg-neon-blue hover:text-white transition-all duration-300 shadow-lg flex items-center gap-2"
                             >
                                 <Download className="w-4 h-4" />
