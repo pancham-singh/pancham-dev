@@ -176,7 +176,7 @@ export default function HeroSection({ characterImage }: HeroSectionProps) {
                             <motion.a
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                href="/Pancham Singh -FullStack Developer.pdf"
+                                href="/Full_Stack_Developer_Pancham_Singh.pdf.pdf"
                                 className="px-8 py-4 bg-white/80 backdrop-blur-sm border-2 border-neon-blue text-neon-blue rounded-full font-semibold hover:bg-neon-blue hover:text-white transition-all duration-300 shadow-lg flex items-center gap-2"
                             >
                                 <Download className="w-4 h-4" />
@@ -194,7 +194,7 @@ export default function HeroSection({ characterImage }: HeroSectionProps) {
                             {[
                                 { icon: Github, href: 'https://github.com/pancham-singh', color: 'hover:text-neon-purple' },
                                 { icon: Linkedin, href: 'https://www.linkedin.com/in/pancham-singh-253b65120', color: 'hover:text-neon-blue' },
-                                { icon: Mail, href: 'mailto:dev.pancham.singh@email.com', color: 'hover:text-neon-pink' },
+                                { icon: Mail, href: 'mailto:dev.pancham.singh@gmail.com', color: 'hover:text-neon-pink' },
                             ].map((social, index) => (
                                 <motion.a
                                     key={index}
@@ -216,6 +216,7 @@ export default function HeroSection({ characterImage }: HeroSectionProps) {
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 2 }}
+                style={{zIndex: 99}}
                 className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
                 onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
             >
